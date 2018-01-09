@@ -3,7 +3,8 @@ import json
 import time
 from requestium import Session
 import requests
-
+import re
+from urllib.parse import urlparse
 from multiprocessing import Pool
 from selenium import webdriver
 
@@ -63,7 +64,10 @@ def download_with_time_limit(link_file_path, download_dir):
             s.proxies = proxies
             try:
                 img = s.get(link.strip(), stream=False, timeout=(10, 20))
-                file_path = img_dir + '{0}.jpg'.format(count)
+                imgpath = urlparse(link)
+                imgtype=re.findall(r'\.\w+',imgpath.path)
+
+                file_path = img_dir + '{0}{1}'.format(count, imgtype[0])
                 with open(file_path,'wb') as wf:
                     wf.write(img.content)
                 print('Process-{0} download image {1}/{2}.jpg'.format(main_keyword, main_keyword, count))
