@@ -11,7 +11,7 @@ def get_image_links( main_keyword, supplemented_keywords, link_file_path, num_re
     s = Session('chromedriver',
                 browser='chrome',
                 default_timeout=15,
-                webdriver_options={'arguments': ['headless', 'disable-gpu']}
+                #webdriver_options={'arguments': ['headless', 'disable-gpu']}
                 )
     number_of_scrolls = int(num_requested / 400) + 1
     img_urls = set()
@@ -28,8 +28,8 @@ def get_image_links( main_keyword, supplemented_keywords, link_file_path, num_re
             try:
                 s.driver.find_element_by_xpath("//input[@value='Show more results']").click()
             except Exception as e:
-                print("Process-{0} reach the end of page or get the maximum number of requested images, args:{2}".format(
-                    main_keyword, e.args))
+                print("Process-{0} reach the end of page or get the maximum number of requested images".format(
+                    main_keyword ))
                 break
 
         images = s.driver.find_elements_by_xpath('//div[contains(@class,"rg_meta")]')
@@ -79,7 +79,7 @@ if __name__ == "__main__":
                      'rectangle heatmap', 'heatmap map'
                      ]
 
-    supplemented_keywords = ['jpg']
+    supplemented_keywords = [' ']
 
     download_dir = './data/'
     link_files_dir = './data/link_files/'
