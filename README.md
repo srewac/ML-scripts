@@ -6,7 +6,7 @@ Transfer learning from inception was used.<br>
 Special thanks to [Hvass-Labs/TensorFlow-Tutorials](https://github.com/Hvass-Labs/TensorFlow-Tutorials)<br>
 
 ## Other Classifier
-Scikit-learn was used. Different approaches to process the input images was attempted.<br>
+Scikit-learn was used. Different approaches to process the input images were attempted.<br>
 To be continue...
 
 
