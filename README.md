@@ -7,6 +7,6 @@ Special thanks to [Hvass-Labs/TensorFlow-Tutorials](https://github.com/Hvass-Lab
 
 ## Other Classifier
 Scikit-learn was used. Different approaches to process the input images were attempted.<br>
-To be continue...
+To be continued...
 
 
